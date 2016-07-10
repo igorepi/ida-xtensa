@@ -106,7 +106,7 @@ def b4constu(val):
     return lut[val]
 
 def movi_n(val):
-	return val if val & 0x60 != 0x60 else -(0x20 - val & 0x1f)
+    return val if val & 0x60 != 0x60 else -(0x20 - val & 0x1f)
 
 def addin(val):
     return val if val else -1
@@ -155,8 +155,7 @@ class Instr(object):
     fmt_RRRN_disp   = (2, (Operand(Operand.REG, 4, 4), Operand(Operand.MEM_INDEX, 4, 12, vshift=2, regbase=(4, 8))))
     fmt_RI6         = (2, (Operand(Operand.REG, 4, 8), Operand(Operand.RELU, 4, 12, 2, 4)))
 #    fmt_RI7         = (2, (Operand(Operand.REG, 4, 8), Operand(Operand.IMM, 4, 12, 3, 4)))
-	fmt_RI7		= (2, (Operand(Operand.REG, 4, 8), Operand(Operand.IMM, 4, 12, 3, 4, xlate=movi_n)))
-
+    fmt_RI7         = (2, (Operand(Operand.REG, 4, 8), Operand(Operand.IMM, 4, 12, 3, 4, xlate=movi_n)))
 
     def __init__(self, name, opcode, mask, fmt, flags = 0):
         self.name = name
